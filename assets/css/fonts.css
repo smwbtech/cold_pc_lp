@@ -1,0 +1,25 @@
+@font-face {
+	font-family: 'Intro';
+	src: local('Intro'), url('/fonts/Intro.woff2') format('woff2'),
+		url('/fonts/Intro.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Clear Sans';
+	src: url('/fonts/clearsans-300-normal.woff2') format('woff2'),
+		url('/fonts/clearsans-300-normal.woff') format('woff'),
+		url('/fonts/clearsans-300-normal.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Clear Sans';
+	src: url('/fonts/clearsans-500-normal.woff2') format('woff2'),
+		url('/fonts/clearsans-500-normal.woff') format('woff'),
+		url('/fonts/clearsans-500-normal.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
