@@ -4,6 +4,7 @@
 	--blue: #0f4471;
 	--orange: #fc3c3c;
 	--grey: #f6f6f6;
+	--bg-mask: rgba(8, 51, 88, 0.3);
 	/* Моя сетка */
 	--side-padding: 20px;
 	--column: calc((100vw - (23 * 20px)) / 24);
