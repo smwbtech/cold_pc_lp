@@ -1,118 +1,134 @@
 <template>
-	<section class="first-display">
+	<section v-observe-visibility="visibilityChanged" class="first-display">
+		<ArrowLine :is-visible="showLine" />
+		<FirstDisplayTitle :is-visible="isVisible" :show-list="showList" />
+		<FirstDisplayDescription :show-description="showDescription" />
 		<!-- bacground with animated clouds -->
-		<div class="background">
-			<div class="mountains" />
-			<div class="clouds">
-				<img
-					src="/img/first-display/clouds.png"
-					alt="белые облока"
-					class="clouds__item first"
-				/>
-				<img
-					src="/img/first-display/clouds.png"
-					alt="белые облока"
-					class="clouds__item second"
-				/>
-			</div>
-		</div>
+		<FirstDisplayBackground />
 		<!-- end - bacground with animated clouds -->
 	</section>
 </template>
 
 <script>
-export default {};
+import FirstDisplayBackground from './FirstDisplayBackground.vue';
+import FirstDisplayTitle from './FirstDisplayTitle.vue';
+import FirstDisplayDescription from './FirstDisplayDescription.vue';
+import ArrowLine from '@/components/UI/ArrowLine.vue';
+
+export default {
+	components: {
+		ArrowLine,
+		FirstDisplayBackground,
+		FirstDisplayDescription,
+		FirstDisplayTitle
+	},
+
+	data() {
+		return {
+			isVisible: false,
+			showLine: false,
+			showList: false,
+			showDescription: false
+		};
+	},
+
+	mounted() {
+		setTimeout(() => (this.showLine = true), 300);
+		setTimeout(() => (this.showList = true), 600);
+		setTimeout(() => (this.showDescription = true), 1500);
+	},
+
+	methods: {
+		visibilityChanged(isVisible, entry) {
+			this.isVisible = isVisible;
+			console.log(entry);
+		}
+	}
+};
 </script>
 
 <style scoped>
 .first-display {
+	position: relative;
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 	width: 100%;
-	min-height: 100vh;
+	height: 100vh;
+	overflow: hidden;
 
-	/* background images */
-
-	& .background {
-		position: relative;
+	& header {
 		width: 100%;
-		height: 100vh;
-		background-image: url('~@/assets/img/first-display/bg.jpg');
-		background-repeat: no-repeat;
-		background-size: cover;
+		height: calc(var(--row) + var(--gutter));
+		min-height: 85px;
+	}
 
-		&:before {
-			content: '';
-			display: block;
-			position: absolute;
-			z-index: 4;
-			width: 100%;
-			height: 100vh;
-			background-color: var(--bg-mask);
+	/* block with title and applications list */
+	& .title-block {
+		position: relative;
+		z-index: 20;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		width: calc(var(--column) * 9 + var(--gutter) * 8);
+		margin-left: calc(var(--column) * 2 + var(--gutter) * 2);
+		text-align: left;
+		color: #fff;
+
+		& h1 {
+			font-family: 'Intro', sans-serif;
 		}
 
-		& .mountains {
-			width: 100%;
-			height: 100vh;
-			position: relative;
-			z-index: 3;
-			background-image: url('~@/assets/img/first-display/mountains.png');
-			background-repeat: no-repeat;
-			background-size: cover;
-		}
+		& ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			font-weight: 500;
+			font-size: 1.2em;
+			opacity: 0;
 
-		& .clouds {
-			position: absolute;
-			z-index: 2;
-			display: flex;
-			top: 0;
-			left: 0;
-			overflow: hidden;
+			&.visible {
+				opacity: 1;
+			}
 
-			& .clouds__item {
-				width: 100vw;
+			& li {
+				position: relative;
+				margin-bottom: var(--gutter);
+				transition: opacity 0.3s ease-in;
 
-				&.first {
-					animation: clouds-first 48s linear infinite;
+				& span {
+					position: relative;
+					z-index: 10;
 				}
 
-				&.second {
-					animation: clouds-second 48s linear infinite;
+				&:before {
+					content: '';
+					display: block;
+					position: absolute;
+					z-index: 9;
+					height: 100%;
+					width: 15px;
+					background-color: var(--orange);
+					transform-origin: center;
+					transform: rotate(45deg);
 				}
 			}
 		}
-	} /* end - background images*/
+	} /* end - block with title and applications list */
 }
 
-@keyframes clouds-first {
-	0% {
-		transform: translateX(-100%);
-	}
-	100% {
-		transform: translateX(100%);
-	}
+/* Animations and transitions */
+
+/* transitions for h1 */
+.header-enter {
+	transform: translateY(-20px);
+	opacity: 0;
 }
 
-@keyframes clouds-second {
-	0% {
-		transform: translateX(-100%);
-	}
-	50% {
-		transform: translateX(0%);
-	}
-	51.5% {
-		transform: translateX(0%);
-		opacity: 0;
-	}
-	52% {
-		transform: translateX(-200%);
-		opacity: 0;
-	}
-	52.5% {
-		transform: translateX(-200%);
-		opacity: 1;
-	}
-	100% {
-		transform: translateX(-100%);
-	}
+.header-enter-active {
+	transition: opacity 0.3s ease-in, transform 0.3s ease-out;
 }
+/* end - transitions for h1 */
+
+/* transition for description block */
 </style>
