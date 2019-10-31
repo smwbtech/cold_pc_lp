@@ -71,11 +71,11 @@ export default {
 		transform: scaleY(1);
 
 		&:before {
-			transform: rotate(-45deg) translateX(1px);
+			transform: rotate(-45deg) translateX(1.5px);
 		}
 
 		&:after {
-			transform: rotate(45deg) translateX(-1px);
+			transform: rotate(45deg) translateX(-1.5px);
 		}
 	}
 }
