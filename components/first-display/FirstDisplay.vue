@@ -1,12 +1,13 @@
 <template>
 	<section class="first-display">
+		<AppMenu />
 		<ArrowLine :is-visible="showLine" />
 		<FirstDisplayTitle :is-visible="showTitle" :show-list="showList" />
 		<FirstDisplayDescription :show-description="showDescription" />
 		<!-- bacground with animated clouds -->
 		<FirstDisplayBackground
-			@backround-loaded="backgeoundLoadedHandler"
 			:is-visible="isVisible"
+			@backround-loaded="backgeoundLoadedHandler"
 		/>
 		<!-- end - bacground with animated clouds -->
 	</section>
@@ -17,16 +18,18 @@ import FirstDisplayBackground from './FirstDisplayBackground.vue';
 import FirstDisplayTitle from './FirstDisplayTitle.vue';
 import FirstDisplayDescription from './FirstDisplayDescription.vue';
 import ArrowLine from '@/components/UI/ArrowLine.vue';
+import AppMenu from '@/components/UI/AppMenu.vue';
 import IntersectionMixin from '@/assets/js/mixins/IntersectionMixin.js';
 
 export default {
-	mixins: [IntersectionMixin],
 	components: {
 		ArrowLine,
+		AppMenu,
 		FirstDisplayBackground,
 		FirstDisplayDescription,
 		FirstDisplayTitle
 	},
+	mixins: [IntersectionMixin],
 
 	data() {
 		return {
