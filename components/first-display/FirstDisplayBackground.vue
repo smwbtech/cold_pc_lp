@@ -18,36 +18,49 @@
 
 <script>
 export default {
-	// data() {
-	// 	return {
-	// 		numberOfImages: 4,
-	// 		imagesLoaded: 0,
-	// 		images: ['']
-	// 	};
-	// },
-	// beforeCreate() {
-	// 	if(process.client) {
-	// 		const background = new Image();
-	// 	}
-	// },
-	// methods: {
-	// 	imgLoadedHandler() {
-	// 		this.imagesLoaded++;
-	// 		if (this.imagesLoaded === this.numberOfImages)
-	// 			this.$emit('backround-loaded');
-	// 	},
-	// 	/**
-	// 	 * preload backgeound images,
-	// 	 * invoke imgLoadedHandler when image loaded
-	// 	 * @param {string} src - source for image
-	// 	 *
-	// 	 */
-	// 	preloadImages(src) {
-	// 		const img = new Image();
-	// 		img.src = src;
-	// 		img.addEventListener('load', imgLoadedHandler);
-	// 	}
-	// }
+	data() {
+		return {
+			imagesLoaded: 0,
+			images: [
+				'/img/first-display/clouds.png',
+				'/img/first-display/bg.jpg',
+				'/img/first-display/mountains.png'
+			]
+		};
+	},
+
+	created() {
+		if (process.client) {
+			for (const src of this.images) {
+				this.preloadImages(src);
+			}
+		}
+	},
+
+	methods: {
+		/**
+		 * count preloaded images and emit background-loaded event
+		 * when all images are ready
+		 * @returns {undefined}
+		 */
+		imgLoadedHandler() {
+			this.imagesLoaded++;
+			if (this.imagesLoaded === this.images.length)
+				this.$emit('backround-loaded');
+		},
+		/**
+		 * preload backgeound images,
+		 * invoke imgLoadedHandler when image loaded
+		 * @param {string} src - source for image
+		 * @returns {undefined}
+		 *
+		 */
+		preloadImages(src) {
+			const img = new Image();
+			img.src = src;
+			img.addEventListener('load', this.imgLoadedHandler, { once: true });
+		}
+	}
 };
 </script>
 
@@ -59,7 +72,7 @@ export default {
 	top: 0;
 	width: 100%;
 	height: 100vh;
-	background-image: url('~@/assets/img/first-display/bg.jpg');
+	background-image: url('/img/first-display/bg.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 
@@ -78,7 +91,7 @@ export default {
 		height: 100vh;
 		position: relative;
 		z-index: 3;
-		background-image: url('~@/assets/img/first-display/mountains.png');
+		background-image: url('/img/first-display/mountains.png');
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
@@ -89,12 +102,10 @@ export default {
 		display: flex;
 		top: 0;
 		left: 0;
-		width: 100%;
+		min-width: 100%;
 		overflow: hidden;
 
 		& .clouds__item {
-			width: 100vw;
-
 			&.first {
 				animation: clouds-first 60s linear infinite;
 			}
@@ -125,15 +136,15 @@ export default {
 	}
 	51.5% {
 		transform: translateX(0%);
-		opacity: 0;
+		visibility: hidden;
 	}
 	52% {
 		transform: translateX(-200%);
-		opacity: 0;
+		visibility: hidden;
 	}
 	52.5% {
 		transform: translateX(-200%);
-		opacity: 1;
+		visibility: visible;
 	}
 	100% {
 		transform: translateX(-100%);
