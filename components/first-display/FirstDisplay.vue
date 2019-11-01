@@ -1,10 +1,13 @@
 <template>
-	<section v-observe-visibility="visibilityChanged" class="first-display">
+	<section class="first-display">
 		<ArrowLine :is-visible="showLine" />
-		<FirstDisplayTitle :is-visible="isVisible" :show-list="showList" />
+		<FirstDisplayTitle :is-visible="showTitle" :show-list="showList" />
 		<FirstDisplayDescription :show-description="showDescription" />
 		<!-- bacground with animated clouds -->
-		<FirstDisplayBackground @backround-loaded="backgeoundLoadedHandler" />
+		<FirstDisplayBackground
+			@backround-loaded="backgeoundLoadedHandler"
+			:is-visible="isVisible"
+		/>
 		<!-- end - bacground with animated clouds -->
 	</section>
 </template>
@@ -14,8 +17,10 @@ import FirstDisplayBackground from './FirstDisplayBackground.vue';
 import FirstDisplayTitle from './FirstDisplayTitle.vue';
 import FirstDisplayDescription from './FirstDisplayDescription.vue';
 import ArrowLine from '@/components/UI/ArrowLine.vue';
+import IntersectionMixin from '@/assets/js/mixins/IntersectionMixin.js';
 
 export default {
+	mixins: [IntersectionMixin],
 	components: {
 		ArrowLine,
 		FirstDisplayBackground,
@@ -25,20 +30,21 @@ export default {
 
 	data() {
 		return {
+			sectionName: 'Главный экран',
 			isVisible: false,
+			showTitle: false,
 			showLine: false,
 			showList: false,
-			showDescription: false
+			showDescription: false,
+			intersectionOptions: {
+				threshold: 1
+			}
 		};
 	},
 
 	methods: {
-		visibilityChanged(isVisible, entry) {
-			this.isVisible = isVisible;
-			console.log(entry);
-		},
-
 		backgeoundLoadedHandler() {
+			this.showTitle = true;
 			setTimeout(() => (this.showLine = true), 300);
 			setTimeout(() => (this.showList = true), 600);
 			setTimeout(() => (this.showDescription = true), 1500);
