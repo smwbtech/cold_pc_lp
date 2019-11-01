@@ -1,5 +1,5 @@
 <template>
-	<div class="background">
+	<div :class="['background', isVisible ? '' : 'dark']">
 		<div class="mountains" />
 		<div class="clouds">
 			<img
@@ -18,6 +18,13 @@
 
 <script>
 export default {
+	props: {
+		isVisible: {
+			type: Boolean,
+			default: true
+		}
+	},
+
 	data() {
 		return {
 			imagesLoaded: 0,
@@ -83,7 +90,15 @@ export default {
 		z-index: 4;
 		width: 100%;
 		height: 100vh;
-		background-color: var(--bg-mask);
+		background-color: var(--dark-blue);
+		opacity: 0.3;
+		transition: opacity 0.3s ease-out;
+	}
+
+	&.dark {
+		&:before {
+			opacity: 0.6;
+		}
 	}
 
 	& .mountains {
