@@ -67,7 +67,9 @@ export default {
 	flex-flow: column;
 	justify-content: center;
 	width: calc(var(--column) * 9 + var(--gutter) * 8);
-	margin-left: calc(var(--column) * 2 + var(--gutter) * 2);
+	margin-left: calc(
+		var(--side-padding) + var(--column) * 2 + var(--gutter) * 2
+	);
 	text-align: left;
 	color: #fff;
 

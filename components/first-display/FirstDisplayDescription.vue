@@ -51,7 +51,9 @@ export default {
 	justify-content: center;
 	align-items: center;
 	width: calc(var(--column) * 9 + var(--gutter) * 8);
-	margin-right: calc(var(--column) * 2 + var(--gutter) * 2);
+	margin-right: calc(
+		var(--side-padding) + var(--column) * 2 + var(--gutter) * 2
+	);
 	color: var(--dark-blue);
 
 	& .description-block__text {
