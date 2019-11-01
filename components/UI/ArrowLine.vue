@@ -44,11 +44,11 @@ export default {
 	transition: transform 0.5s ease-in;
 
 	&.left {
-		left: var(--column);
+		left: calc(var(--column) + var(--side-padding));
 	}
 
 	&.right {
-		right: var(--column);
+		right: calc(var(--column) + var(--side-padding));
 	}
 
 	&:before,
