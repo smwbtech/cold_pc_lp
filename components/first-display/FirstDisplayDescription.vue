@@ -14,7 +14,10 @@
 						способные работать на улице без дополнительного
 						подогрева.
 					</p>
-					<button>читать о рещениях</button>
+					<div class="next-screen">
+						<DirectionButton />
+						<p>читать о решениях</p>
+					</div>
 				</div>
 			</div>
 		</transition>
@@ -22,7 +25,13 @@
 </template>
 
 <script>
+import DirectionButton from '@/components/UI/DirectionButton.vue';
+
 export default {
+	components: {
+		DirectionButton
+	},
+
 	props: {
 		showDescription: {
 			type: Boolean,
@@ -80,7 +89,6 @@ export default {
 			z-index: 11;
 			width: calc(var(--column) * 5 + var(--gutter) * 4);
 			height: calc(var(--column) * 5 + var(--gutter) * 4);
-			padding: 10px;
 			display: flex;
 			flex-flow: column;
 			justify-content: space-between;
@@ -89,6 +97,7 @@ export default {
 				position: relative;
 				font-size: 1.2em;
 				margin: 0;
+				padding: 10px;
 
 				&:after {
 					position: absolute;
@@ -106,10 +115,33 @@ export default {
 
 			& p {
 				margin: 0;
+				padding: 10px;
 				text-align: justify;
 				line-height: 1.4;
 				font-weight: 300;
 				font-size: 0.9em;
+			}
+
+			& .next-screen {
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				cursor: pointer;
+				background-color: var(--bg-mask);
+				color: var(--dark-blue);
+				transition: background-color 0.2s ease-in, color 0.2s ease-out;
+
+				& p {
+					font-size: 1.2em;
+					width: calc(var(--column) * 4 + var(--gutter) * 3);
+					text-align: center;
+				}
+
+				&:hover {
+					background-color: var(--blue);
+					color: #fff;
+				}
 			}
 		}
 	}
