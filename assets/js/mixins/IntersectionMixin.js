@@ -12,7 +12,7 @@ export default {
 			entries.forEach((entry) => {
 				this.isVisible = entry.isIntersecting;
 				if (entry.isIntersecting) {
-					console.log(this.sectionName);
+					this.$store.commit('setCurrentSection', this.sectionName);
 				}
 			});
 		}
