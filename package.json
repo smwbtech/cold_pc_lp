@@ -20,6 +20,7 @@
     "normalize.css": "^8.0.1",
     "nuxt": "^2.0.0",
     "smoothscroll-polyfill": "^0.4.4",
+    "vue-mouse-parallax": "^1.2.2",
     "vue-observe-visibility": "^0.4.6"
   },
   "devDependencies": {
