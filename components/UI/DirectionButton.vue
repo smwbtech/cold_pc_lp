@@ -1,5 +1,5 @@
 <template>
-	<button>
+	<button @click="$emit('click')">
 		<img
 			src="/img/first-display/arrow.svg"
 			:style="iconStyles"
@@ -29,9 +29,9 @@ export default {
 				case 'up':
 					return { transform: `rotate(${-90}deg)` };
 				case 'right':
-					return { transform: `rotate(${-45}deg)` };
+					return { transform: `rotate(${-90}deg)` };
 				case 'left':
-					return { transform: `rotate(${45}deg)` };
+					return { transform: `rotate(${90}deg)` };
 			}
 		}
 	}
