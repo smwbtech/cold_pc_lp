@@ -1,6 +1,6 @@
 <template>
 	<section class="application">
-		<ApplicationSlider />
+		<ApplicationSlider :is-visible="isVisible" />
 		<ArrowLine
 			:x-axis="'right'"
 			:backgroud-color="'#083358'"
