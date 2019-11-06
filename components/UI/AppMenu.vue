@@ -72,9 +72,14 @@ header {
 
 	&.fixed {
 		position: fixed;
-		background-color: #fff;
+		background-color: rgba(255, 255, 255, 0.7);
 		animation: menu 0.3s ease-out forwards;
 		box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+		transition: background-color 0.3s ease-in;
+
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.9);
+		}
 
 		& ul {
 			& li {
