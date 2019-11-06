@@ -12,9 +12,13 @@
 				/>
 			</a>
 			<ul>
-				<li><a href="">решения</a></li>
-				<li><a href="">модели</a></li>
-				<li><a href="">контакты</a></li>
+				<li>
+					<a href="" @click.prevent="scrollTo('.application')"
+						>решения</a
+					>
+				</li>
+				<li><a href="" @click.prevent="scrollTo('')">модели</a></li>
+				<li><a href="" @click.prevent="scrollTo('')">контакты</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -25,6 +29,13 @@ export default {
 	computed: {
 		isFixed() {
 			return this.$store.state.currentSection !== 'Главный экран';
+		}
+	},
+	methods: {
+		scrollTo(selector) {
+			document
+				.querySelector(selector)
+				.scrollIntoView({ behavior: 'smooth' });
 		}
 	}
 };
