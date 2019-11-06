@@ -17,7 +17,9 @@
 						>решения</a
 					>
 				</li>
-				<li><a href="" @click.prevent="scrollTo('')">модели</a></li>
+				<li>
+					<a href="" @click.prevent="scrollTo('.models')">модели</a>
+				</li>
 				<li><a href="" @click.prevent="scrollTo('')">контакты</a></li>
 			</ul>
 		</nav>
