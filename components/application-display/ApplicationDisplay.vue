@@ -22,7 +22,7 @@ export default {
 	mixins: [IntersectionMixin],
 	data() {
 		return {
-			sectionName: 'Решения',
+			sectionName: 'решения',
 			isVisible: false,
 			intersectionOptions: {
 				threshold: 0.3
