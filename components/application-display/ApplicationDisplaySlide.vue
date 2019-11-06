@@ -2,15 +2,14 @@
 	<div class="slide">
 		<transition name="image" mode="out-in">
 			<img
-				v-if="showSlide"
+				v-if="showSlide && imageLoaded"
 				:src="`/img/application-display/${image}`"
 				:alt="title"
 				class="slide__illustration"
-				@load="imageLoaded = true"
 			/>
 		</transition>
 		<transition :name="textTransitionName" mode="out-in">
-			<div class="slide__text" v-if="showSlide && imageLoaded">
+			<div v-if="showSlide && imageLoaded" class="slide__text">
 				<h3 :class="activeTitle ? 'active' : ''">
 					<span>{{ title }}</span>
 				</h3>
@@ -33,15 +32,6 @@ export default {
 		transitionName: {
 			type: String,
 			default: 'inc'
-		}
-	},
-
-	watch: {
-		showSlide(val, oldVal) {
-			if (!val) {
-				this.imageLoaded = false;
-				this.activeTitle = false;
-			}
 		}
 	},
 
@@ -84,6 +74,39 @@ export default {
 		},
 		textTransitionName() {
 			return `text-${this.transitionName}`;
+		}
+	},
+
+	watch: {
+		showSlide(val, oldVal) {
+			if (!val) {
+				this.imageLoaded = false;
+				this.activeTitle = false;
+				this.imageLoadedHandler(
+					`/img/application-display/${this.image}`
+				);
+			}
+		}
+	},
+
+	mounted() {
+		if (this.showSlide) {
+			this.imageLoaded = true;
+			this.activeTitle = true;
+		}
+	},
+
+	methods: {
+		imageLoadedHandler(src) {
+			const img = new Image();
+			img.src = src;
+			img.addEventListener(
+				'load',
+				() => {
+					this.imageLoaded = true;
+				},
+				{ once: true }
+			);
 		}
 	}
 };
