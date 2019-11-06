@@ -1,50 +1,66 @@
 <template>
 	<div class="slider">
 		<!-- Number of slide -->
-		<div class="slide__number"></div>
+		<ApplicationSlideNumber
+			:index="index"
+			:show="showSlide"
+			:transition-name="transitionName"
+		/>
 		<!-- Slide element -->
 		<ApplicationSlide
 			:index="index"
-			:showSlide="showSlide"
-			:transitionName="transitionName"
+			:show-slide="showSlide"
+			:transition-name="transitionName"
 		/>
 		<!-- Controls for slider -->
 		<div class="controls">
-			<DirectionButton :direction="'left'" @click="changeSlide(-1)" />
-			<DirectionButton :direction="'right'" @click="changeSlide(1)" />
+			<DirectionButton :direction="'left'" @click="clickHandler(-1)" />
+			<DirectionButton :direction="'right'" @click="clickHandler(1)" />
 		</div>
 		<!-- Decore -->
 		<client-only>
-			<parallax-container class="decore-btm-lft">
-				<parallax-element
-					class="decore-btm-lft__item"
-					:type="'depth'"
-					:parallaxStrength="-20"
-					tag="img"
-					:src="'/img/application-display/decore-bottom-left.png'"
-				/>
-			</parallax-container>
-			<parallax-container class="decore-top-rt">
-				<parallax-element
-					class="decore-top-rt__item"
-					:type="'depth'"
-					:parallaxStrength="-20"
-					tag="img"
-					:src="'/img/application-display/decore-top-right.png'"
-				/>
-			</parallax-container>
+			<transition name="decore-left">
+				<parallax-container v-show="isVisible" class="decore-btm-lft">
+					<parallax-element
+						class="decore-btm-lft__item"
+						:type="'depth'"
+						:parallax-strength="-20"
+						tag="img"
+						:src="'/img/application-display/decore-bottom-left.png'"
+					/>
+				</parallax-container>
+			</transition>
+			<transition name="decore-right">
+				<parallax-container v-show="isVisible" class="decore-top-rt">
+					<parallax-element
+						class="decore-top-rt__item"
+						:type="'depth'"
+						:parallax-strength="-20"
+						tag="img"
+						:src="'/img/application-display/decore-top-right.png'"
+					/>
+				</parallax-container>
+			</transition>
 		</client-only>
 	</div>
 </template>
 
 <script>
 import ApplicationSlide from './ApplicationDisplaySlide.vue';
+import ApplicationSlideNumber from './ApplicationDisplaySlideNumber.vue';
 import DirectionButton from '@/components/UI/DirectionButton.vue';
 
 export default {
 	components: {
 		ApplicationSlide,
-		DirectionButton
+		DirectionButton,
+		ApplicationSlideNumber
+	},
+
+	props: {
+		isVisible: {
+			type: Boolean
+		}
 	},
 
 	data() {
@@ -53,11 +69,38 @@ export default {
 			slidesLength: 3,
 			showSlide: true,
 			transitionName: 'inc',
-			delay: 300
+			delay: 300,
+			intervalId: null,
+			timeoutId: null
 		};
 	},
 
+	watch: {
+		isVisible(val, oldVal) {
+			if (val) {
+				this.intervalId = setInterval(() => {
+					this.changeSlide(1);
+				}, 8000);
+			} else {
+				clearInterval(this.intervalId);
+			}
+		}
+	},
+
 	methods: {
+		clickHandler(n) {
+			clearInterval(this.intervalId);
+			clearTimeout(this.timeoutId);
+			this.changeSlide(n);
+			this.timeoutId = setTimeout(
+				(this.intervalId = setInterval(
+					() => this.changeSlide(1),
+					8000
+				)),
+				10000
+			);
+		},
+
 		changeSlide(n) {
 			const nextSlide = this.index + n;
 			this.transitionName = n > 0 ? 'inc' : 'dec';
@@ -129,5 +172,26 @@ export default {
 			max-width: 100%;
 		}
 	}
+}
+
+/* Animations and transitions */
+.decore-left-enter,
+.decore-left-leave-to {
+	transform: translateX(-20px) scale(0.7);
+	opacity: 0;
+}
+
+.decore-right-enter,
+.decore-right-leave-to {
+	transform: translateX(20px) scale(0.7);
+	opacity: 0;
+}
+
+.decore-left-enter-active,
+.decore-left-leave-active,
+.decore-right-enter-active,
+.decore-right-leave-active {
+	transition: opacity 0.3s ease-in, transform 0.3s ease-out;
+	transition-delay: 0.5s;
 }
 </style>
