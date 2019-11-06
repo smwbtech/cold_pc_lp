@@ -14,7 +14,10 @@
 						способные работать на улице без дополнительного
 						подогрева.
 					</p>
-					<div class="next-screen">
+					<div
+						class="next-screen"
+						@click.prevent="scrollTo('.application')"
+					>
 						<DirectionButton />
 						<p>читать о решениях</p>
 					</div>
@@ -36,6 +39,14 @@ export default {
 		showDescription: {
 			type: Boolean,
 			default: false
+		}
+	},
+
+	methods: {
+		scrollTo(selector) {
+			document
+				.querySelector(selector)
+				.scrollIntoView({ behavior: 'smooth' });
 		}
 	}
 };
