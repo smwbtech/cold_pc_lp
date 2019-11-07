@@ -52,7 +52,7 @@ header {
 	position: absolute;
 	z-index: 100;
 	width: 100%;
-	padding: 10px
+	padding: 5px
 		calc(var(--side-padding) + var(--column) * 2 + var(--gutter) * 2);
 	font-family: 'Intro', sans-serif;
 

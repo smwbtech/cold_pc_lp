@@ -68,8 +68,6 @@ export default {
 
 	& header {
 		width: 100%;
-		height: calc(var(--row) + var(--gutter));
-		min-height: 85px;
 	}
 }
 
