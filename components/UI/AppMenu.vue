@@ -20,7 +20,11 @@
 				<li>
 					<a href="" @click.prevent="scrollTo('.models')">модели</a>
 				</li>
-				<li><a href="" @click.prevent="scrollTo('')">контакты</a></li>
+				<li>
+					<a href="" @click.prevent="scrollTo('.contacts')"
+						>контакты</a
+					>
+				</li>
 			</ul>
 		</nav>
 	</header>
