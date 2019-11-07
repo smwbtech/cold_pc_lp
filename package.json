@@ -21,7 +21,8 @@
     "nuxt": "^2.0.0",
     "smoothscroll-polyfill": "^0.4.4",
     "vue-mouse-parallax": "^1.2.2",
-    "vue-observe-visibility": "^0.4.6"
+    "vue-observe-visibility": "^0.4.6",
+    "vuescroll": "^4.14.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.0.1",

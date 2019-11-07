@@ -40,7 +40,8 @@ module.exports = {
 		{ src: '@/plugins/intersection-observer-polyfil.js', mode: 'client' },
 		{ src: '@/plugins/vue-visibility-observer.js', mode: 'client' },
 		{ src: '@/plugins/vue-mouse-parallax.js', mode: 'client' },
-		{ src: '@/plugins/smooth-scroll.js', mode: 'client' }
+		{ src: '@/plugins/smooth-scroll.js', mode: 'client' },
+		{ src: '@/plugins/vue-scroll.js', mode: 'client' }
 	],
 	/*
 	 ** Nuxt.js dev-modules
