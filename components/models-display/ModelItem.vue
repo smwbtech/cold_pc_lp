@@ -1,6 +1,9 @@
 <template>
 	<client-only>
-		<parallax-container class="model">
+		<parallax-container
+			class="model"
+			@click.native="$emit('show-modal', modelId)"
+		>
 			<parallax-element
 				class="model__decore-border"
 				tag="div"
