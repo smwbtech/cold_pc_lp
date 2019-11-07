@@ -1,6 +1,6 @@
 <template>
 	<div
-		:class="['line', this.xAxis, this.isVisible ? 'visible' : '']"
+		:class="['line', xAxis, isVisible ? 'visible' : '']"
 		:style="styleObj"
 	/>
 </template>
