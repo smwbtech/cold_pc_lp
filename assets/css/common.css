@@ -8,3 +8,7 @@
 body {
 	font-family: 'Clear Sans', sans-serif;
 }
+
+.hide-scroll {
+	overflow-y: hidden;
+}
