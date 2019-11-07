@@ -49,9 +49,6 @@ export default {
 	justify-content: center;
 	width: 100%;
 	min-height: 100vh;
-	background-image: url('/img/models-display/bg.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
 
 	&:before {
 		position: absolute;
