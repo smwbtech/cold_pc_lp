@@ -8,18 +8,26 @@
 				:model-id="model.id"
 				:model-preview="model.previewPhoto.value"
 				:model-name="model.name"
+				@show-modal="showModelInfo"
 			/>
 		</div>
+		<ModelFullView
+			:show="showModal"
+			:model="currentModel"
+			@close-modal="closeModelInfo"
+		/>
 	</section>
 </template>
 <script>
 import ModelItem from './ModelItem.vue';
+import ModelFullView from './ModelItemFull.vue';
 import ArrowLine from '@/components/UI/ArrowLine.vue';
 import IntersectionMixin from '@/assets/js/mixins/IntersectionMixin.js';
 export default {
 	components: {
 		ArrowLine,
-		ModelItem
+		ModelItem,
+		ModelFullView
 	},
 	mixins: [IntersectionMixin],
 	data() {
@@ -28,7 +36,9 @@ export default {
 			isVisible: false,
 			intersectionOptions: {
 				threshold: 0.3
-			}
+			},
+			showModal: false,
+			currentModel: null
 		};
 	},
 	computed: {
@@ -38,6 +48,22 @@ export default {
 	},
 	mounted() {
 		console.log(this.$store.state.models);
+	},
+	methods: {
+		showModelInfo(id) {
+			this.currentModel = this.models.find((v) => v.id === id);
+			this.showModal = true;
+			if (process.client) {
+				document.querySelector('body').classList.add('hide-scroll');
+			}
+		},
+		closeModelInfo() {
+			this.currentModel = null;
+			this.showModal = false;
+			if (process.client) {
+				document.querySelector('body').classList.remove('hide-scroll');
+			}
+		}
 	}
 };
 </script>
