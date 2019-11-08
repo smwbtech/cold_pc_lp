@@ -1,8 +1,8 @@
 <template>
 	<section class="contacts">
-		<ContactUs />
-		<OurAdvantages />
-		<ContactsFooter />
+		<ContactUs :show="isVisible" />
+		<OurAdvantages :show="isVisible" />
+		<ContactsFooter :show="isVisible" />
 	</section>
 </template>
 <script>
@@ -19,7 +19,7 @@ export default {
 	mixins: [IntersectionMixin],
 	data() {
 		return {
-			sectionName: 'модели',
+			sectionName: 'контакты',
 			isVisible: false,
 			intersectionOptions: {
 				threshold: 0.3
@@ -35,7 +35,6 @@ export default {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	width: 100%;
-	min-height: 100vh;
 	padding: 0px
 		calc(var(--side-padding) + var(--column) * 2 + var(--gutter) * 2);
 	padding-top: var(--row);
