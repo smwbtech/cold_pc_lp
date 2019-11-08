@@ -125,4 +125,25 @@ header {
 		padding: 5px calc(var(--m-gutter) * 2);
 	}
 }
+
+/* smartphones */
+@media (width < 768px) {
+	header {
+		font-size: 0.8em;
+		& nav {
+			& > a {
+				display: none;
+			}
+			& ul {
+				padding: 0 10px;
+				width: 100%;
+				justify-content: space-between;
+
+				& li {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}
 </style>
