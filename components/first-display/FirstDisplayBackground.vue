@@ -165,4 +165,11 @@ export default {
 		transform: translateX(-100%);
 	}
 }
+
+/* tablets */
+@media (width < 1200px) {
+	.background {
+		overflow: hidden;
+	}
+}
 </style>

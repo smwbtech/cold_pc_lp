@@ -118,4 +118,11 @@ header {
 		transform: translateY(0%);
 	}
 }
+
+/* tablets */
+@media (width < 1200px) {
+	header {
+		padding: 5px calc(var(--m-gutter) * 2);
+	}
+}
 </style>

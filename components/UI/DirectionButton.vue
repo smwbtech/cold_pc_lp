@@ -49,4 +49,12 @@ button {
 	height: var(--column);
 	cursor: pointer;
 }
+
+/* tablets */
+@media (width <= 1200px) {
+	button {
+		width: var(--m-column);
+		height: var(--m-column);
+	}
+}
 </style>

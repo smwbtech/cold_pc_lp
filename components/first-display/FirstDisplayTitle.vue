@@ -112,6 +112,8 @@ export default {
 				transform-origin: center;
 				transform: rotate(0deg);
 				transition: transform 0.3s ease-in;
+				width: 1em;
+				height: 30px;
 			}
 
 			&.active {
@@ -138,4 +140,13 @@ export default {
 	transition: opacity 0.3s ease-in, transform 0.3s ease-out;
 }
 /* end - transitions for h1 */
+
+/* tablets */
+@media (width < 1200px) {
+	.title-block {
+		width: 100%;
+		margin-left: calc(var(--m-column) + var(--m-gutter));
+		padding-right: calc(var(--m-gutter) * 2);
+	}
+}
 </style>

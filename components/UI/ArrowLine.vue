@@ -79,4 +79,29 @@ export default {
 		}
 	}
 }
+
+/* tablets */
+@media (width <= 1200px) {
+	.line {
+		position: absolute;
+		top: var(--m-row);
+		height: calc(100vh - (var(--m-row) * 2));
+		width: 3px;
+
+		&.left {
+			left: calc(var(--m-gutter) * 2);
+		}
+
+		&.right {
+			right: calc(var(--m-gutter) * 2);
+		}
+
+		&:before,
+		&:after {
+			width: 3px;
+			height: 10px;
+			bottom: -20px;
+		}
+	}
+}
 </style>
