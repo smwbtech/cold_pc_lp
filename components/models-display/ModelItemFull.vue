@@ -267,6 +267,7 @@ export default {
 			padding-top: 100px;
 			order: 1;
 			width: 100%;
+			margin-bottom: 40px;
 		}
 	}
 }
