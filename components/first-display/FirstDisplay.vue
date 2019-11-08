@@ -71,7 +71,7 @@ export default {
 	}
 }
 
-/* tablet */
+/* mobile phones */
 @media (width < 768px) {
 	.first-display {
 		height: auto;

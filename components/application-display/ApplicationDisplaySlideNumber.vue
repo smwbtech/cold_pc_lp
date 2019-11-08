@@ -66,4 +66,29 @@ export default {
 .number-dec-leave-active {
 	transition: opacity 0.3s ease-in, transform 0.3s ease-out;
 }
+
+@media (width < 1366px) {
+	.slide-number {
+		width: calc(var(--column) + var(--gutter));
+		height: calc(var(--column) + var(--gutter));
+	}
+}
+
+/* tablets */
+@media (width < 1200px) {
+	.slide-number {
+		width: var(--m-column);
+		height: var(--m-column);
+	}
+}
+
+/* small desctop displays */
+@media (width < 768px) {
+	.slide-number {
+		top: 0;
+		left: 0;
+		width: calc(var(--m-column) * 2 + var(--m-gutter));
+		height: calc(var(--m-column) * 2 + var(--m-gutter));
+	}
+}
 </style>

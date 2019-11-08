@@ -42,4 +42,11 @@ export default {
 	min-height: 100vh;
 	background-color: var(--grey);
 }
+
+/* small desctop displays */
+@media (width < 768px) {
+	.application {
+		overflow: hidden;
+	}
+}
 </style>

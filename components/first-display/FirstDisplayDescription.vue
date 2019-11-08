@@ -192,6 +192,12 @@ export default {
 				width: calc(var(--column) * 8 + var(--gutter) * 7);
 				height: calc(var(--column) * 8 + var(--gutter) * 7);
 
+				& h2 {
+					&:after {
+						bottom: -5px;
+					}
+				}
+
 				& p {
 					line-height: 1.8;
 					font-size: 1em;
@@ -230,6 +236,12 @@ export default {
 				width: 100%;
 				height: 100%;
 				text-align: center;
+
+				& h2 {
+					&:after {
+						bottom: -5px;
+					}
+				}
 
 				& .next-screen {
 					& p {

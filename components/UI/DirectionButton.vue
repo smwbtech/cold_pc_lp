@@ -50,11 +50,26 @@ button {
 	cursor: pointer;
 }
 
+@media (width < 1366px) {
+	button {
+		width: calc(var(--column) + var(--gutter));
+		height: calc(var(--column) + var(--gutter));
+	}
+}
+
 /* tablets */
-@media (width <= 1200px) {
+@media (width < 1200px) {
 	button {
 		width: var(--m-column);
 		height: var(--m-column);
+	}
+}
+
+/* tablets */
+@media (width < 768px) {
+	button {
+		width: calc(var(--m-column) * 2 + var(--m-gutter));
+		height: calc(var(--m-column) * 2 + var(--m-gutter));
 	}
 }
 </style>

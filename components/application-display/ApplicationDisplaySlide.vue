@@ -134,8 +134,8 @@ export default {
 				display: block;
 				position: absolute;
 				z-index: 0;
-				height: 100%;
-				width: 15px;
+				width: 1em;
+				height: 30px;
 				background-color: var(--orange);
 				transform-origin: center;
 				transform: rotate(45deg);
@@ -182,5 +182,75 @@ export default {
 .text-inc-leave-active,
 .text-dec-leave-active {
 	transition: opacity 0.3s ease-in, transform 0.3s ease-out;
+}
+
+/* small desctop displays */
+@media (width <= 1366px) {
+	.slide {
+		& .slide__illustration {
+			width: 50%;
+		}
+
+		& .slide__text {
+			& h3 {
+				&:before {
+					width: 1em;
+					height: 30px;
+				}
+			}
+
+			& p {
+				line-height: 1.4;
+				font-size: 1em;
+			}
+		}
+	}
+}
+
+/* tablets */
+@media (width < 1200px) {
+	.slide {
+		& .slide__illustration {
+			z-index: 1;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: auto;
+			height: 100%;
+			opacity: 0.5;
+		}
+
+		& .slide__text {
+			width: 100%;
+			position: relative;
+			z-index: 10;
+			display: flex;
+			flex-flow: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			padding: 0px 20px;
+
+			& p {
+				line-height: 1.7;
+				font-weight: 500;
+			}
+		}
+	}
+}
+
+/* small desctop displays */
+@media (width < 768px) {
+	.slide {
+		& .slide__text {
+			font-size: 0.8em;
+
+			& h3 {
+				&:before {
+					display: none;
+				}
+			}
+		}
+	}
 }
 </style>

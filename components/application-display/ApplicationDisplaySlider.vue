@@ -140,6 +140,7 @@ export default {
 
 	& .controls {
 		position: absolute;
+		z-index: 2;
 		display: flex;
 		right: 20px;
 		bottom: 20px;
@@ -152,6 +153,7 @@ export default {
 	& .decore-top-rt,
 	& .decore-btm-lft {
 		position: absolute;
+		z-index: 2;
 	}
 
 	& .decore-btm-lft {
@@ -167,6 +169,7 @@ export default {
 	& .decore-top-rt {
 		top: -10%;
 		right: -4%;
+		width: calc(var(--column) * 3 + var(--gutter) * 2);
 
 		& .decore-top-rt__item {
 			max-width: 100%;
@@ -193,5 +196,49 @@ export default {
 .decore-right-leave-active {
 	transition: opacity 0.3s ease-in, transform 0.3s ease-out;
 	transition-delay: 0.5s;
+}
+
+/* small desctop displays */
+@media (width <= 1366px) {
+	.slider {
+		height: 80vh;
+	}
+}
+
+/* tablets */
+@media (width < 1200px) {
+	.slider {
+		& .decore-top-rt,
+		& .decore-btm-lft {
+			width: calc(var(--m-column) * 3 + var(--m-gutter) * 2);
+		}
+	}
+}
+
+/* mobile phones */
+@media (width < 768px) {
+	.slider {
+		width: 100%;
+		min-height: 100vh;
+
+		& .controls {
+			width: 100%;
+			bottom: 0px;
+			left: 0px;
+			justify-content: center;
+			z-index: 3;
+		}
+
+		& .decore-btm-lft {
+			bottom: 0;
+			left: 0;
+		}
+
+		& .decore-top-rt {
+			top: 0;
+			right: 0;
+			z-index: 20;
+		}
+	}
 }
 </style>
