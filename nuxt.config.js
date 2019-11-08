@@ -2,6 +2,9 @@ const postcssCalc = require('postcss-calc');
 
 module.exports = {
 	mode: 'universal',
+	server: {
+		port: 3007
+	},
 	/*
 	 ** Headers of the page
 	 */
