@@ -129,6 +129,7 @@ export default {
 
 	& .close-btn {
 		position: absolute;
+		z-index: 10;
 		right: 0;
 		top: 0;
 	}
@@ -248,9 +249,17 @@ export default {
 		& .preview {
 			order: 2;
 			margin-top: 50px;
+			justify-content: center;
+			width: 100%;
+			& .preview__img {
+				min-width: 300px;
+				height: auto;
+			}
 			& .preview__bg {
 				width: auto;
 				height: 100%;
+				z-index: 10;
+				opacity: 0.7;
 			}
 		}
 
@@ -258,6 +267,24 @@ export default {
 			padding-top: 100px;
 			order: 1;
 			width: 100%;
+		}
+	}
+}
+
+@media (width < 768px) {
+	.model {
+		padding: 0 var(--m-gutter);
+
+		& .description {
+			& .desctiption-title {
+				font-size: 0.6em;
+			}
+
+			& .description-text {
+				font-weight: 300;
+				font-size: 0.8em;
+				text-align: justify;
+			}
 		}
 	}
 }
