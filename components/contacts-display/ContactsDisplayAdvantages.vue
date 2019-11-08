@@ -3,16 +3,27 @@
 		<h2>почему IEI?</h2>
 		<ul>
 			<li v-for="(item, index) in advantages" :key="`${index}-adv`">
-				<img :src="item.icon" :alt="item.text" />
-				<span>{{ item.text }}</span>
+				<img
+					:src="item.icon"
+					:alt="item.text"
+					:class="[visible ? 'visible' : '']"
+				/>
+				<span :class="[visible ? 'visible' : '']">{{ item.text }}</span>
 			</li>
 		</ul>
 	</div>
 </template>
 <script>
 export default {
+	props: {
+		show: {
+			type: Boolean,
+			default: false
+		}
+	},
 	data() {
 		return {
+			visible: false,
 			advantages: [
 				{
 					text:
@@ -34,6 +45,11 @@ export default {
 				}
 			]
 		};
+	},
+	watch: {
+		show(val, oldVal) {
+			if (val) this.visible = val;
+		}
 	}
 };
 </script>
@@ -59,10 +75,28 @@ export default {
 
 			& img {
 				width: var(--column);
+				transform: rotate(-45deg);
+				opacity: 0;
+				transition: opacity 0.3s ease-in, transform 0.3s ease-out;
+				transition-delay: 0.3s;
+
+				&.visible {
+					transform: rotate(0deg);
+					opacity: 1;
+				}
 			}
 
 			& span {
 				padding-left: calc(var(--column) + var(--gutter));
+				opacity: 0;
+				transform: translateY(-20px);
+				transition: opacity 0.3s ease-in, transform 0.3s ease-out;
+				transition-delay: 0.3s;
+
+				&.visible {
+					transform: translateY(0);
+					opacity: 1;
+				}
 			}
 		}
 	}
