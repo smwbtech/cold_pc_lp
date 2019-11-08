@@ -173,4 +173,39 @@ export default {
 .description-enter-active {
 	transition: opacity 0.3s ease-in, transform 0.3s ease-out;
 }
+
+/* small desktop displays */
+@media (1024px < width < 1600px) {
+	.description-block {
+		& .description-block__text {
+			width: calc(var(--column) * 8 + var(--gutter) * 7);
+			height: calc(var(--column) * 8 + var(--gutter) * 7);
+
+			&:before,
+			&:after {
+				width: calc(var(--column) * 8 + var(--gutter) * 7);
+				height: calc(var(--column) * 8 + var(--gutter) * 7);
+			}
+
+			& .text {
+				text-align: center;
+				width: calc(var(--column) * 8 + var(--gutter) * 7);
+				height: calc(var(--column) * 8 + var(--gutter) * 7);
+
+				& p {
+					line-height: 1.8;
+					font-size: 1em;
+				}
+
+				& .next-screen {
+					& p {
+						width: 100%;
+						padding: 0;
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+}
 </style>
