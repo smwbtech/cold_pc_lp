@@ -118,6 +118,11 @@ export default {
 	align-items: center;
 	overflow: hidden;
 
+	& .slide__illustration {
+		width: auto;
+		height: 100%;
+	}
+
 	& .slide__text {
 		padding-right: calc(var(--column) * 2 + var(--gutter));
 
@@ -189,6 +194,7 @@ export default {
 	.slide {
 		& .slide__illustration {
 			width: 50%;
+			height: auto;
 		}
 
 		& .slide__text {

@@ -63,6 +63,7 @@ header {
 
 		& img {
 			width: calc(var(--column) * 3 + var(--gutter) * 2);
+			max-height: 100%;
 		}
 
 		& ul {
