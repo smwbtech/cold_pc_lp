@@ -157,4 +157,32 @@ export default {
 	transition: opacity 0.3s ease-in, transform 0.3s ease-out;
 	transition-delay: 0.3s;
 }
+
+@media (width < 768px) {
+	.contact-us {
+		width: 100%;
+
+		& h2 {
+			width: 100%;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		& .product {
+			flex-flow: column;
+			width: 100%;
+			align-items: center;
+			text-align: center;
+			margin-bottom: 20px;
+
+			& .info {
+				& .name {
+					&:before {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
 </style>

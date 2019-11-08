@@ -106,4 +106,17 @@ footer {
 		}
 	}
 }
+
+@media (width < 768px) {
+	footer {
+		& ul {
+			flex-flow: column;
+			padding: 0;
+
+			& li {
+				margin-bottom: 20px;
+			}
+		}
+	}
+}
 </style>

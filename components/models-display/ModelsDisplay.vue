@@ -97,4 +97,17 @@ export default {
 		width: calc(var(--column) * 20 + var(--gutter) * 19);
 	}
 }
+
+@media (width < 1200px) {
+	.models {
+		padding-top: 150px;
+		justify-content: space-between;
+
+		& .models-list {
+			padding: 0px calc((var(--m-column) + var(--m-gutter)));
+			width: 100%;
+			justify-content: center;
+		}
+	}
+}
 </style>

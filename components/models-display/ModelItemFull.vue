@@ -149,6 +149,7 @@ export default {
 		& .preview__bg {
 			position: absolute;
 			z-index: 1;
+			width: 100%;
 		}
 	}
 
@@ -179,13 +180,12 @@ export default {
 		& .features {
 			width: 100%;
 			height: 60vh;
-			overflow-y: hidden;
 
 			& .features-list {
 				list-style: none;
 				padding: 0;
 				margin: 0;
-				margin-bottom: 40px;
+				padding-bottom: 40px;
 
 				& .features-list-item {
 					display: flex;
@@ -227,5 +227,38 @@ export default {
 }
 .preview-enter-active {
 	transition-delay: 0.3s;
+}
+
+@media (width < 1366px) {
+	.model {
+		& .description {
+			& .features {
+				font-size: 0.7em;
+				height: 40vh;
+			}
+		}
+	}
+}
+
+@media (width < 1200px) {
+	.model {
+		flex-flow: column;
+		overflow-y: scroll;
+
+		& .preview {
+			order: 2;
+			margin-top: 50px;
+			& .preview__bg {
+				width: auto;
+				height: 100%;
+			}
+		}
+
+		& .description {
+			padding-top: 100px;
+			order: 1;
+			width: 100%;
+		}
+	}
 }
 </style>

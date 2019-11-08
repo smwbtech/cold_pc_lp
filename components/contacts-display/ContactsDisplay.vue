@@ -39,4 +39,11 @@ export default {
 		calc(var(--side-padding) + var(--column) * 2 + var(--gutter) * 2);
 	padding-top: var(--row);
 }
+
+@media (width < 768px) {
+	.contacts {
+		padding: 20px 10px;
+		flex-flow: column;
+	}
+}
 </style>

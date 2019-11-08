@@ -101,4 +101,26 @@ export default {
 		}
 	}
 }
+
+@media (width < 768px) {
+	.advantages {
+		width: 100%;
+		font-weight: 300;
+		font-size: 0.8em;
+
+		& h2 {
+			text-align: center;
+			margin: 20px 0px;
+		}
+
+		& ul {
+			padding: 0;
+			& li {
+				& img {
+					width: 30px;
+				}
+			}
+		}
+	}
+}
 </style>

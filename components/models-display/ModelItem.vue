@@ -100,4 +100,18 @@ export default {
 		margin: 0;
 	}
 }
+
+@media (width < 1200px) {
+	.model {
+		width: calc(var(--m-column) * 4 + var(--m-gutter) * 3);
+		height: calc(var(--m-column) * 4 + var(--m-gutter) * 3);
+	}
+}
+
+@media (width < 768px) {
+	.model {
+		width: calc(var(--m-column) * 6 + var(--m-gutter) * 5);
+		height: calc(var(--m-column) * 6 + var(--m-gutter) * 5);
+	}
+}
 </style>
