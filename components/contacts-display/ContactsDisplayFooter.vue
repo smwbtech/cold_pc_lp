@@ -1,6 +1,6 @@
 <template>
 	<footer>
-		<ul>
+		<ul :class="[show ? 'visible' : '']">
 			<li v-for="adress in adresses" :key="adress.email">
 				<span class="city">{{ adress.city }}</span>
 				<a class="phone" :href="`tel:${adress.tel}`">{{
@@ -15,6 +15,12 @@
 </template>
 <script>
 export default {
+	props: {
+		show: {
+			type: Boolean,
+			default: false
+		}
+	},
 	data() {
 		return {
 			adresses: [
@@ -58,12 +64,33 @@ footer {
 	width: 100%;
 
 	& ul {
+		position: relative;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
 		list-style: none;
 		color: #fff;
+
+		&:before {
+			content: '';
+			position: absolute;
+			bottom: -1em;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 3px;
+			background-color: rgba(255, 255, 255, 0.7);
+			transform-origin: center center;
+			transform: scale(0);
+			transition: transform 0.3s ease-in 0.3s;
+		}
+
+		&.visible {
+			&:before {
+				transform: scale(1);
+			}
+		}
 
 		& li {
 			display: flex;
