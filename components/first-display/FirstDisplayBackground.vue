@@ -172,4 +172,22 @@ export default {
 		overflow: hidden;
 	}
 }
+
+/* mobile phones */
+@media (width < 768px) {
+	.background {
+		height: 100%;
+		min-height: 100vh;
+
+		&:before {
+			min-height: 100vh;
+			height: 100%;
+		}
+
+		& .mountains {
+			height: 100%;
+			min-height: 100vh;
+		}
+	}
+}
 </style>

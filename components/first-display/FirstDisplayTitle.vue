@@ -149,4 +149,12 @@ export default {
 		padding-right: calc(var(--m-gutter) * 2);
 	}
 }
+
+/* mobile phones */
+@media (width < 768px) {
+	.title-block {
+		padding-left: 10px;
+		font-size: 0.8em;
+	}
+}
 </style>

@@ -71,5 +71,11 @@ export default {
 	}
 }
 
-/* transition for description block */
+/* tablet */
+@media (width < 768px) {
+	.first-display {
+		height: auto;
+		min-height: 100vh;
+	}
+}
 </style>

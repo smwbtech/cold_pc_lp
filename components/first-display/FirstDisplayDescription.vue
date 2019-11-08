@@ -243,6 +243,7 @@ export default {
 	}
 }
 
+/* Old ipad landscape */
 @media (width <= 1024px) and (orientation: landscape) {
 	.description-block {
 		& .description-block__text {
@@ -255,6 +256,13 @@ export default {
 				height: calc(var(--m-column) * 4 + var(--m-gutter) * 3);
 			}
 		}
+	}
+}
+
+/* mobile phones */
+@media (width < 768px) {
+	.description-block {
+		display: none;
 	}
 }
 </style>
