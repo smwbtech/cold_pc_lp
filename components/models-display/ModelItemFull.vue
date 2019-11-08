@@ -7,16 +7,22 @@
 				@click="$emit('close-modal')"
 			/>
 			<div class="preview">
-				<img
-					class="preview__img"
-					:src="model.previewPhoto.value"
-					:alt="model.name"
-				/>
-				<img
-					class="preview__bg"
-					src="/img/models-display/ice.png"
-					alt="лед"
-				/>
+				<transition name="preview">
+					<img
+						v-show="showPreview"
+						class="preview__img"
+						:src="model.previewPhoto.value"
+						:alt="model.name"
+					/>
+				</transition>
+				<transition name="background">
+					<img
+						v-show="showBackground"
+						class="preview__bg"
+						src="/img/models-display/ice.png"
+						alt="лед"
+					/>
+				</transition>
 			</div>
 			<div class="description">
 				<div class="desctiption-title">
@@ -61,13 +67,37 @@ export default {
 			type: Object
 		}
 	},
+
+	data() {
+		return {
+			showPreview: false,
+			showBackground: false
+		};
+	},
+
+	watch: {
+		show(val, oldVal) {
+			if (val) {
+				setTimeout(() => {
+					this.showPreview = true;
+					this.showBackground = true;
+				}, 600);
+			} else {
+				setTimeout(() => {
+					this.showPreview = false;
+					this.showBackground = false;
+				}, 600);
+			}
+		}
+	},
+
 	computed: {
 		features() {
 			const engFields = {
 				'i18n::field-brightness': 'Яркость',
 				'i18n::field-cvet_korpusa': 'Цвет корпуса'
 			};
-			const features = Object.entries(this.model.features).map((v) => {
+			let features = Object.entries(this.model.features).map((v) => {
 				if (v[0] !== 'photos') {
 					const name = engFields[v[1].name]
 						? engFields[v[1].name]
@@ -78,6 +108,7 @@ export default {
 					return { name, value };
 				}
 			});
+			features = features.filter((v) => v.name !== 'i18n::field-type');
 			return features;
 		}
 	}
@@ -154,6 +185,7 @@ export default {
 				list-style: none;
 				padding: 0;
 				margin: 0;
+				margin-bottom: 40px;
 
 				& .features-list-item {
 					display: flex;
@@ -161,6 +193,10 @@ export default {
 					width: 100%;
 					padding-right: 40px;
 					margin: 20px 0px;
+
+					& .value {
+						font-weight: 300;
+					}
 				}
 			}
 		}
@@ -175,5 +211,21 @@ export default {
 .model-enter-active,
 .model-leave-active {
 	transition: transform 0.6s ease-in-out;
+}
+
+/* Transitions and animations */
+
+.preview-enter,
+.background-enter {
+	opacity: 0;
+	transform: translateX(20px);
+}
+
+.preview-enter-active,
+.background-enter-active {
+	transition: opacity 0.3s ease-in, transform 0.3s ease-out;
+}
+.preview-enter-active {
+	transition-delay: 0.3s;
 }
 </style>
