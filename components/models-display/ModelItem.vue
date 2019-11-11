@@ -86,7 +86,9 @@ export default {
 		position: relative;
 		z-index: 3;
 		width: 80%;
-		height: 100%;
+		height: auto;
+		max-height: 80%;
+		object-fit: cover;
 		margin: 0 auto;
 	}
 
