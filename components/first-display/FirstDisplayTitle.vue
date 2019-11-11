@@ -142,6 +142,19 @@ export default {
 }
 /* end - transitions for h1 */
 
+/* small desktop displays */
+@media (1200px <= width < 1600px) {
+	.title-block {
+		& h1 {
+			font-size: 1.5em;
+		}
+
+		& ul {
+			font-size: 1.1em;
+		}
+	}
+}
+
 /* tablets */
 @media (width < 1200px) {
 	.title-block {
