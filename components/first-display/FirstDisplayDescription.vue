@@ -22,7 +22,7 @@
 						@click.prevent="scrollTo('.application')"
 					>
 						<DirectionButton />
-						<p>читать о решениях</p>
+						<p>читать о типовых решениях</p>
 					</div>
 				</div>
 			</div>
