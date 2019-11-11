@@ -31,6 +31,10 @@ export default {
 					icon: '/img/contacts-display/recommended.svg'
 				},
 				{
+					text: 'широкий диапазон рабочих температур (-40 ~ +80)',
+					icon: '/img/contacts-display/cold.svg'
+				},
+				{
 					text:
 						'высокая производительность в компактном форма-факторе',
 					icon: '/img/contacts-display/analysis.svg'
@@ -42,6 +46,10 @@ export default {
 				{
 					text: 'удобный монтаж и обслуживание',
 					icon: '/img/contacts-display/auction.svg'
+				},
+				{
+					text: 'мировой опыт внедрения проектов',
+					icon: '/img/contacts-display/experience.svg'
 				}
 			]
 		};
@@ -71,10 +79,11 @@ export default {
 		& li {
 			display: flex;
 			align-items: center;
-			margin-bottom: var(--row);
+			margin-bottom: 40px;
 
 			& img {
-				width: var(--column);
+				width: 45px;
+				height: 45px;
 				transform: rotate(-45deg);
 				opacity: 0;
 				transition: opacity 0.3s ease-in, transform 0.3s ease-out;
