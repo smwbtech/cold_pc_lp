@@ -14,7 +14,7 @@
 				<div v-show="visible" class="info">
 					<span class="name"><span>Олег Волков</span></span>
 					<span class="position"
-						>продакт-менеджер компании <br />ООО
+						>продукт-менеджер компании <br />ООО
 						"Ниеншанц-Автоматика"<br />
 						по продукции IEI</span
 					>
