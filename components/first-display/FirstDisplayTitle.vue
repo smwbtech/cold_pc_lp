@@ -42,7 +42,7 @@ export default {
 			applicationsTitle: [
 				'система контроля и управления доступом (СКУД)',
 				'система видеонаблюдения за нефтепроводом',
-				'система охранного освещения'
+				'платёжный терминал'
 			]
 		};
 	},
@@ -100,6 +100,7 @@ export default {
 			& span {
 				position: relative;
 				z-index: 10;
+				font-size: 1.1em;
 			}
 
 			&:before {
