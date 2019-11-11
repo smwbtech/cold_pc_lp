@@ -14,8 +14,9 @@
 						Данные платы уже пользуются большой популярностью в
 						районах крайнего Севера. Они привлекают своей
 						надёжностью и гибкими возможностями. Рабочий диапазон
-						плат -40 +85. Платы IEI доступны в форм-факторах 3,5”,
-						EPIC NANO, PC/104.
+						плат <strong>-40 +85</strong>. Платы IEI доступны в
+						форм-факторах <strong>3,5”</strong>,
+						<strong>EPIC NANO</strong>, <strong>PC/104</strong>.
 					</p>
 					<div
 						class="next-screen"
@@ -72,8 +73,8 @@ export default {
 
 	& .description-block__text {
 		position: relative;
-		width: calc(var(--column) * 5 + var(--gutter) * 4);
-		height: calc(var(--column) * 5 + var(--gutter) * 4);
+		width: calc(var(--column) * 6 + var(--gutter) * 5);
+		height: calc(var(--column) * 6 + var(--gutter) * 5);
 
 		&:before,
 		&:after {
@@ -82,8 +83,8 @@ export default {
 			top: 0;
 			content: '';
 			display: block;
-			width: calc(var(--column) * 5 + var(--gutter) * 4);
-			height: calc(var(--column) * 5 + var(--gutter) * 4);
+			width: calc(var(--column) * 6 + var(--gutter) * 5);
+			height: calc(var(--column) * 6 + var(--gutter) * 5);
 		}
 
 		&:before {
@@ -103,8 +104,8 @@ export default {
 		& .text {
 			position: relative;
 			z-index: 11;
-			width: calc(var(--column) * 5 + var(--gutter) * 4);
-			height: calc(var(--column) * 5 + var(--gutter) * 4);
+			width: calc(var(--column) * 6 + var(--gutter) * 5);
+			height: calc(var(--column) * 6 + var(--gutter) * 5);
 			display: flex;
 			flex-flow: column;
 			justify-content: space-between;
@@ -136,7 +137,7 @@ export default {
 				text-align: justify;
 				line-height: 1.4;
 				font-weight: 300;
-				font-size: 0.9em;
+				font-size: 1em;
 			}
 
 			& .next-screen {
