@@ -1,7 +1,7 @@
 import axios from 'axios';
 import config from '@/config.js';
 
-const ITEMS_ID = [5831013, 5831014, 5831012, 231930, 335153, 335152];
+const ITEMS_ID = [5831013, 5831014, 5831012, 231930];
 
 export async function getItems(token) {
 	const apiResponse = await axios.get(
