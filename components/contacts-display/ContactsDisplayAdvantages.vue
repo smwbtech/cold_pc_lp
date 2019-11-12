@@ -31,7 +31,7 @@ export default {
 					icon: '/img/contacts-display/recommended.svg'
 				},
 				{
-					text: 'широкий диапазон рабочих температур (-40 ~ +80)',
+					text: 'широкий диапазон рабочих температур (-40 ~ +85)',
 					icon: '/img/contacts-display/cold.svg'
 				},
 				{
@@ -41,7 +41,7 @@ export default {
 				},
 				{
 					text: 'техническая поддержка и сервис центр в России',
-					icon: '/img/contacts-display/customer-service.svg'
+					icon: '/img/contacts-display/service-center.svg'
 				},
 				{
 					text: 'удобный монтаж и обслуживание',
