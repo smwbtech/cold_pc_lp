@@ -80,7 +80,7 @@ export default {
 			if (val) {
 				this.intervalId = setInterval(() => {
 					this.changeSlide(1);
-				}, 8000);
+				}, 50000);
 			} else {
 				clearInterval(this.intervalId);
 			}
@@ -95,7 +95,7 @@ export default {
 			this.timeoutId = setTimeout(
 				(this.intervalId = setInterval(
 					() => this.changeSlide(1),
-					8000
+					50000
 				)),
 				10000
 			);
