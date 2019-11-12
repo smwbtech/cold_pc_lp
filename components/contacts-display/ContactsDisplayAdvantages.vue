@@ -36,7 +36,7 @@ export default {
 				},
 				{
 					text:
-						'высокая производительность в компактном форма-факторе',
+						'высокая производительность в компактном форм-факторе',
 					icon: '/img/contacts-display/analysis.svg'
 				},
 				{
@@ -46,11 +46,11 @@ export default {
 				{
 					text: 'удобный монтаж и обслуживание',
 					icon: '/img/contacts-display/auction.svg'
-				},
-				{
-					text: 'мировой опыт внедрения проектов',
-					icon: '/img/contacts-display/experience.svg'
 				}
+				// {
+				// 	text: 'мировой опыт внедрения проектов',
+				// 	icon: '/img/contacts-display/experience.svg'
+				// }
 			]
 		};
 	},
