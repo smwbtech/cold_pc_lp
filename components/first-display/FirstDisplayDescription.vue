@@ -16,7 +16,7 @@
 						надёжностью и гибкими возможностями. Рабочий диапазон
 						плат <strong>-40 +85</strong>. Платы IEI доступны в
 						форм-факторах <strong>3,5”</strong>,
-						<strong>EPIC NANO</strong>, <strong>PC/104</strong>.
+						<strong>EPIC NANO</strong>.
 					</p>
 					<div
 						class="next-screen"
