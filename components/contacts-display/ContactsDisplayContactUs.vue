@@ -5,7 +5,7 @@
 			<transition name="avatar">
 				<img
 					v-show="visible"
-					src="/img/contacts-display/avatar.png"
+					src="/img/contacts-display/avatar2.png"
 					alt="Олег Волков"
 					class="product__avatar"
 				/>

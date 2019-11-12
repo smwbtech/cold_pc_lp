@@ -62,6 +62,7 @@ export default {
 <style scoped>
 footer {
 	width: 100%;
+	padding-top: 20px;
 
 	& ul {
 		position: relative;
@@ -72,7 +73,8 @@ footer {
 		list-style: none;
 		color: #fff;
 
-		&:before {
+		&:before,
+		&:after {
 			content: '';
 			position: absolute;
 			bottom: -1em;
@@ -86,8 +88,13 @@ footer {
 			transition: transform 0.3s ease-in 0.3s;
 		}
 
+		&:after {
+			top: -1em;
+		}
+
 		&.visible {
-			&:before {
+			&:before,
+			&:after {
 				transform: scale(1);
 			}
 		}

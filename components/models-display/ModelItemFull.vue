@@ -75,22 +75,6 @@ export default {
 		};
 	},
 
-	watch: {
-		show(val, oldVal) {
-			if (val) {
-				setTimeout(() => {
-					this.showPreview = true;
-					this.showBackground = true;
-				}, 600);
-			} else {
-				setTimeout(() => {
-					this.showPreview = false;
-					this.showBackground = false;
-				}, 600);
-			}
-		}
-	},
-
 	computed: {
 		features() {
 			const engFields = {
@@ -110,6 +94,22 @@ export default {
 			});
 			features = features.filter((v) => v.name !== 'i18n::field-type');
 			return features;
+		}
+	},
+
+	watch: {
+		show(val, oldVal) {
+			if (val) {
+				setTimeout(() => {
+					this.showPreview = true;
+					this.showBackground = true;
+				}, 600);
+			} else {
+				setTimeout(() => {
+					this.showPreview = false;
+					this.showBackground = false;
+				}, 600);
+			}
 		}
 	}
 };
