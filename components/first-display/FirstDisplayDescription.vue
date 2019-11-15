@@ -163,8 +163,9 @@ export default {
 
 				& p {
 					font-size: 1.2em;
-					width: calc(var(--column) * 4 + var(--gutter) * 3);
+					width: inherit;
 					text-align: center;
+					font-weight: bold;
 				}
 
 				&:hover {
