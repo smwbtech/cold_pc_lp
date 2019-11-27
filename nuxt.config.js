@@ -9,7 +9,7 @@ module.exports = {
 	 ** Headers of the page
 	 */
 	head: {
-		title: process.env.npm_package_name || '',
+		title: 'Промышленные процессорные платы IEI',
 		meta: [
 			{ charset: 'utf-8' },
 			{
@@ -19,7 +19,19 @@ module.exports = {
 			{
 				hid: 'description',
 				name: 'description',
-				content: process.env.npm_package_description || ''
+				content:
+					'Промышленные встраиваемые платы IEI для экстремально низких температур (-40 + 85).  Для систем СКУД, видеонаблюдения за нефтепроводом, платёжных терминалов расположенных на улице.'
+			},
+			{
+				hid: 'keywords',
+				name: 'keywords',
+				content:
+					'платы iei, промышленные процессорные платы, встраиваемые платы iei, платы на -40'
+			},
+			{
+				hid: 'yandex-verification',
+				name: 'yandex-verification',
+				content: '102a0e791118320b'
 			}
 		],
 		link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
@@ -58,7 +70,18 @@ module.exports = {
 	 */
 	modules: [
 		// Doc: https://axios.nuxtjs.org/usage
-		'@nuxtjs/axios'
+		'@nuxtjs/axios',
+		[
+			'@nuxtjs/yandex-metrika',
+			{
+				id: '56420104',
+				webvisor: true,
+				clickmap: true,
+				useCDN: false,
+				trackLinks: true,
+				accurateTrackBounce: true
+			}
+		]
 	],
 	/*
 	 ** Axios module configuration
