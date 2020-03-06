@@ -2,8 +2,8 @@
 	<div class="title-block">
 		<transition type="transition" name="header">
 			<h1 v-show="isVisible">
-				Промышленные встраиваемые платы для экстремально низких
-				температур (-40 + 85)
+				Промышленные встраиваемые платы для экстремальных температур
+				(-40 + 85)
 			</h1>
 		</transition>
 		<transition-group
